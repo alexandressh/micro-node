@@ -1,0 +1,15 @@
+version: '2'
+services:
+  api:
+    image: micro-node:latest
+    links:
+      - redisdb
+    depends_on:
+      - redisdb
+    ports:
+      - "3000:3000"
+  redisdb:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+      
